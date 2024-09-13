@@ -1,11 +1,10 @@
 import { Logo } from "../../assets/Social";
 import { NavLink } from "react-router-dom";
-import { Container } from "../../components/Container/Container.styled";
 
 const Header = () => {
   return (
     <header>
-      <Container>
+      <div className="container">
         <div className="pt-[28px] pb-[28px] flex flex-column justify-between items-center lg:gap-[450px]">
           <Logo />
           <div className="flex items-center gap-[16px] md:gap-[32px]">
@@ -23,7 +22,7 @@ const Header = () => {
             </NavLink>
           </div>
         </div>
-      </Container>
+      </div>
     </header>
   );
 };

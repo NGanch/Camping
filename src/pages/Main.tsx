@@ -15,7 +15,7 @@ const Main = () => {
   };
 
   return (
-    <div className="bg-[url('assets/Picture.png')] bg-cover bg-center h-[696px] w-full">
+    <div className="bg-[url('assets/picture.jpg')] bg-cover bg-center h-[696px] w-full">
       <div className="container">
         <div className="pt-[260px] pb-[260px] flex items-center xl:items-start flex-col ">
           <h1 className="mb-[16px] text-secondaryWhite text-[36px] md:text-[48px] font-[600] leading-[1.25] ">

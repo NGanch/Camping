@@ -15,7 +15,7 @@ const Gallery = ({ gallery, count }: Props) => {
           onClick={handleClick}
         >
           <img
-            className="w-full h-[320px] lg:w-[292px] rounded-[10px]"
+            className="w-[292px] h-[320px] lg:w-[292px] object-cover rounded-[10px]"
             src={thumb}
             alt={"car"}
           />

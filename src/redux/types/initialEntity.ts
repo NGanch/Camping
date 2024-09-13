@@ -4,95 +4,58 @@ export type initialStateCatalogueType = {
 };
 
 export type CatalogueState = {
-  _id: string;
+  id: string;
   name: string;
   price: number;
   rating: number;
   location: string;
+  description: string;
   form: string;
   length: string;
   width: string;
   height: string;
   tank: string;
   consumption: string;
-  description: string;
-  details: {
-    airConditioner: number;
-    bathroom: number;
-    kitchen: number;
-    beds: number;
-    adults: number;
-    children: number;
-    engine: string;
-    transmission: string;
-    TV: number;
-    CD: number;
-    radio: number;
-    shower: number;
-    toilet: number;
-    freezer: number;
-    hob: number;
-    microwave: number;
-    gas: string;
-    water: string;
-  };
-  gallery: string[];
+  transmission: string;
+  engine: string;
+  AC: boolean;
+  bathroom: boolean;
+  kitchen: boolean;
+  TV: boolean;
+  radio: boolean;
+  refrigerator: boolean;
+  microwave: boolean;
+  gas: boolean;
+  water: boolean;
+  gallery: Array<{ thumb: string; original: string }>;
+  reviews: Array<{ reviewer_name: string; reviewer_rating: number; comment: string }>;
 
-  reviews: [
-    {
-      reviewer_name: string;
-      reviewer_rating: number;
-      comment: string;
-    },
-    {
-      reviewer_name: string;
-      reviewer_rating: number;
-      comment: string;
-    }
-  ];
 };
 
 export type GoodsType = NonNullable<{
-  _id: string;
+  id: string;
   name: string;
   price: number;
   rating: number;
   location: string;
+  description: string;
   form: string;
   length: string;
   width: string;
   height: string;
   tank: string;
   consumption: string;
-  description: string;
-  details: {
-    airConditioner: number;
-    bathroom: number;
-    kitchen: number;
-    beds: number;
-    adults: number;
-    children: number;
-    engine: string;
-    transmission: string;
-    TV: number;
-    CD: number;
-    radio: number;
-    shower: number;
-    toilet: number;
-    freezer: number;
-    hob: number;
-    microwave: number;
-    gas: string;
-    water: string;
-  };
-  gallery: string[];
-  reviews: {
-    reviewer_name: string;
-    reviewer_rating: number;
-    comment: string;
-  }[];
+  transmission: string;
+  engine: string;
+  AC: boolean;
+  bathroom: boolean;
+  kitchen: boolean;
+  TV: boolean;
+  radio: boolean;
+  refrigerator: boolean;
+  microwave: boolean;
+  gas: boolean;
+  water: boolean;
+  gallery: Array<{ thumb: string; original: string }>;
+  reviews: Array<{ reviewer_name: string; reviewer_rating: number; comment: string }>;
 }>;
-
-// export type LicationsState = {
-
-// }

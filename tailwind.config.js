@@ -1,4 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+// Breakpoint prefix	Minimum width	CSS
+// sm	640px	@media (min-width: 640px) { ... }
+// md	768px	@media (min-width: 768px) { ... }
+// lg	1024px	@media (min-width: 1024px) { ... }
+// xl	1280px	@media (min-width: 1280px) { ... }
+// 2xl	1536px	@media (min-width: 1536px) { ... }
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -12,7 +18,7 @@ export default {
         tritiaryLightGray: "#10182833",
         primaryBrightPurple: "#D84343",
         secondaryExoticPink: "#E44848",
-        secondaryToxicGreen: "#",
+        secondaryWhite: "#F7F7F7",
         secondaryCalmOrange: "#",
         tritiaryLavander: "#",
         tritiaryLightestGray: "#1018281A",
@@ -21,7 +27,7 @@ export default {
         secondaryDarkPurple: "#",
         transparent: "transparent",
       },
-
+      
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },

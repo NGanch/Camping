@@ -1,45 +1,47 @@
-import Modal from "../Modal/Modal";
-import { GoodsType } from "../../redux/types/initialEntity";
-import Gallery from "../Gallery/Gallery";
-import Features from "../Features/Features";
-import Reviews from "../Reviews/Reviews";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import { Outlet } from "react-router-dom";
+import Gallery from "../components/Gallery/Gallery";
+import Features from "../components/Features/Features";
+import Reviews from "../components/Reviews/Reviews";
 
-import { MapPin } from "../../assets/Icons";
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { getCatalogue } from "../redux/catalogue/catalogue-operation";
+import { CatalogueState, GoodsType } from "../redux/types/initialEntity";
 
-import "../components.scss";
+import { MapPin } from "../assets/Icons";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  borderRadius: "20px",
-  background: "var(--Primary-white, #fff)",
-  padding: "40px",
-  width: "982px",
-  height: "720px",
-};
+const CampersItem = () => {
+    const dispatch = useAppDispatch();
+    const [activeTab, setActiveTab] = useState("");
+    const { id } = useParams(); 
+    const catalogue: CatalogueState[] = useAppSelector((state) => {
+        return state.catalogue.catalogueList;
+      });
 
-type Props = {
-  goodsData: GoodsType;
-  isOpen: boolean;
-  handleClose: () => void;
-};
-
-const InfoinModal = ({ goodsData, isOpen, handleClose }: Props) => {
-  const [activeTab, setActiveTab] = useState("");
-
+      useEffect(() => {
+        dispatch(getCatalogue());
+      }, [dispatch]);
+      
+  const goodsData: GoodsType | null = id
+    ? (catalogue.find(
+        (category) => category.id === id
+      ) as GoodsType)
+    : null;
+  
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
+
+  if (!goodsData) {
+    return <div>Data is missing!</div>; // Додайте перевірку на випадок відсутності даних
+  }
   return (
-    <Modal isOpen={isOpen} handleClose={handleClose} style={style}>
-      <div className="w-[902px] h-[600px] overflow-scroll">
-        <div className="flex gap-[24px] " key={goodsData._id}>
-          <div>
+    <section className="section">
+      <div className="container">
+      <div className="">
+        <div className="flex flex-col items-center justify-center md:items-start md:justify-start gap-[24px] " key={goodsData.id}>
+ 
             <div className="flex flex-col items-start">
               <h2 className="text-primaryBlack text-[24px] font-[600] leading-[1.25] ">
                 {goodsData.name}
@@ -70,7 +72,7 @@ const InfoinModal = ({ goodsData, isOpen, handleClose }: Props) => {
             <p className="mt-[24px] h-[100px] text-tritiaryGray text-[16px] font-[400] leading-[1.5] overflow-scroll">
               {goodsData.description}
             </p>
-          </div>
+       
         </div>
 
         <ul className="border-text mt-[24px] flex gap-[40px] ">
@@ -95,11 +97,14 @@ const InfoinModal = ({ goodsData, isOpen, handleClose }: Props) => {
             </button>
           </li>
         </ul>
+
         {activeTab === "features" && <Features goodsData={goodsData} />}
         {activeTab === "reviews" && <Reviews goodsData={goodsData} />}
-        <Outlet />
+
+
       </div>
-    </Modal>
+      </div>
+    </section>
   );
 };
-export default InfoinModal;
+export default CampersItem;

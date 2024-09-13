@@ -1,23 +1,23 @@
-import { lazy,  } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
+import React, { Suspense } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
 
-
-const Home = lazy(() => import("./pages/Main/Main"));
-
-// import {GlobalStyles} from './components/globalStyles';
+const Main = React.lazy(() => import('./pages/Main'));
+const Catalog = React.lazy(() => import('./pages/Catalog'));
+const CampersItem = React.lazy(() => import('./pages/CampersItem'));
 
 function App() {
-
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        {/* <Route path="features" element={<Features />} />
-        <Route path="reviews" element={<Reviews />} /> */}
-      </Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+<Suspense fallback={<div>Loading...</div>}>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Main />} />
+      <Route path="/campers" element={<Catalog />} />
+      <Route path="/campers/:id" element={<CampersItem />} />
+    </Route>
+    <Route path="*" element={<Navigate to="/" replace />} />
+  </Routes>
+</Suspense>
 
   );
 }

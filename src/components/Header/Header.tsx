@@ -1,4 +1,4 @@
-import { Logo } from "../../assets/Icons";
+import { Logo } from "../../assets/Social";
 import { NavLink } from "react-router-dom";
 import { Container } from "../../components/Container/Container.styled";
 

@@ -1,14 +1,9 @@
 import {
-  // Users,
   Vertical,
   Automatic,
   Kitchen,
-  // Beds,
   Petrol,
-  // Conditioner,
-  // CD,
   Radio,
-  // Hob
 } from "../../assets/Icons";
 
 type Props = {
@@ -20,16 +15,11 @@ type Props = {
 const ButtonList = ({ count, width, height }: Props) => {
   // Використовуйте slice для відображення різної кількості елементів в залежності від значення count
   const buttonsToShow = [
-    // { icon: <Users  />, text: `${details.adults} adults` },
     { icon: <Automatic width={width} height={height} />, text: "Automatic" },
     { icon: <Petrol />, text: "Petrol" },
     { icon: <Kitchen width={width} height={height} />, text: "Kitchen" },
-    // { icon: <Beds />, text: `${details.beds} Beds` },
     { icon: <Vertical width={width} height={height} />, text: "AC" },
-    // { icon: <Conditioner />, text: AC },
-    // { icon: <CD />, text: "details.CD" },
     { icon: <Radio />, text: `Radio` },
-    // { icon: <Hob />, text: `hob` },
   ].slice(0, count);
 
   return (

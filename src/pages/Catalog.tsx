@@ -10,7 +10,7 @@ import ButtonList from "../components/ButtonList/ButtonList";
 import MainButton from "../components/Button/MainButton";
 import SecondButton from "../components/Button/SecondButton";
 
-import { MapPin, Heart, RedHeart } from "../assets/Icons";
+import { MapPin, Heart, RedHeart } from "../assets/Social";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

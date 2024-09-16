@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { getCatalogue } from "../redux/catalogue/catalogue-operation";
 import { CatalogueState, GoodsType } from "../redux/types/initialEntity";
 
-import { MapPin } from "../assets/Icons";
+import { MapPin } from "../assets/Social";
 
 const CampersItem = () => {
     const dispatch = useAppDispatch();

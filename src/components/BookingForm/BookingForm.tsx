@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { toast } from "react-toastify";
 
-import DatePickers from "../DatePickers/DatePickers";
+// import DatePickers from "../DatePickers/DatePickers";
 import FormError from "../FormError/FormError";
 import MainButton from "../Button/MainButton";
 import { Dates } from "../../assets/Icons";
@@ -78,7 +78,8 @@ const BookingForm = () => {
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        {({ values, setFieldValue, errors, touched }) => (
+        {({ values, errors, touched }) => (
+          // setFieldValue
           <Form className="flex flex-col items-center ">
             <div className="flex flex-col gap-[14px] w-full ">
               <div className="">
@@ -104,7 +105,7 @@ const BookingForm = () => {
                 <FormError name="email" />
               </div>
               <div className="date-input relative">
-                <DatePickers
+                {/* <DatePickers
                   name="bookingDate"
                   value={values.bookingDate}
                   setFieldValue={setFieldValue}
@@ -117,7 +118,7 @@ const BookingForm = () => {
                   }
                   isOpen={isDatePickerOpen}
                   toggleCalendar={handleToggleDatePicker}
-                />
+                /> */}
                 <button
                   type="button"
                   className="absolute right-0 top-0 bottom-0 flex items-center px-3 bg-transparent rounded-[10px]"

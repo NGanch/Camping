@@ -6,7 +6,7 @@ import Reviews from "../Reviews/Reviews";
 
 import { Outlet } from "react-router-dom";
 
-import { MapPin } from "../../assets/Icons";
+import { MapPin } from "../../assets/Social";
 import { useState } from "react";
 
 import "../components.scss";
